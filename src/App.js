@@ -26,9 +26,8 @@ class App extends React.Component {
 
     const newItem = {
       id: this.state.id,
-      item: this.state.item,
+      title: this.state.item,
     };
-    console.log("This is the added item", newItem);
 
     const updatedItems = [...this.state.items, newItem];
 
@@ -38,7 +37,6 @@ class App extends React.Component {
       id: uuid(),
       editItem: false,
     });
-    console.log("Item array", this.state.items);
   };
 
   render() {
@@ -52,7 +50,7 @@ class App extends React.Component {
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             />
-            <TodoList />
+            <TodoList items={this.state.items}/>
           </div>
         </div>
       </div>
