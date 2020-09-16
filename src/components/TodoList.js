@@ -1,6 +1,6 @@
 import React from "react";
 import TodoItem from "./TodoItem";
-function TodoList({ items, clearList, handleDelete }) {
+function TodoList({ items, clearList, handleDelete, handleEdit }) {
   return (
     <ul className="list-group my-5">
       <h3 className="text-capitalize text-center">todo list</h3>
@@ -10,6 +10,7 @@ function TodoList({ items, clearList, handleDelete }) {
             key={item.id}
             title={item.title}
             handleDelete={() => handleDelete(item.id)}
+            handleEdit={()=> handleEdit(item.id)}
           />
         );
       })}
