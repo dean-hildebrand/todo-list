@@ -1,9 +1,9 @@
 import React from "react";
 
-function TodoInput({ item, handleChange }) {
+function TodoInput({ item, handleChange, handleSubmit }) {
   return (
     <div className="card card-body my-3">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="input-group">
           <div className="input-group-prepend">
             <div className="div input-group-text bg-primary text-white">
