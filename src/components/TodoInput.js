@@ -1,6 +1,6 @@
 import React from "react";
 
-function TodoInput() {
+function TodoInput({ item, handleChange }) {
   return (
     <div className="card card-body my-3">
       <form>
@@ -10,7 +10,12 @@ function TodoInput() {
               <i className="fas fa-book" />
             </div>
           </div>
-          <input type="text" className="form-control text-capitalize" placeholder="add a todo item..."></input>
+          <input type="text"
+          className="form-control text-capitalize"
+          value={item}
+          onChange={handleChange}
+          placeholder="add a todo item...">
+          </input>
         </div>
         <button type='submit' className='btn btn-block btn-primary mt-3'>add item</button>
       </form>
