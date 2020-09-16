@@ -5,7 +5,7 @@ import TodoList from "./components/TodoList";
 import "bootstrap/dist/css/bootstrap.min.css";
 // npm install uuid and import
 // creates a unique id
-import {v1 as uuid} from "uuid";
+import { v1 as uuid } from "uuid";
 
 class App extends React.Component {
   state = {
@@ -39,6 +39,19 @@ class App extends React.Component {
     });
   };
 
+  clearList = () => {
+    this.setState({
+      items: [],
+    });
+  };
+
+  handleDelete = (id) => {
+    const filteredItems = this.state.items.filter(item => item.id !== id)
+    this.setState({
+      items: filteredItems
+    })
+  }
+
   render() {
     return (
       <div className="container">
@@ -50,7 +63,11 @@ class App extends React.Component {
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             />
-            <TodoList items={this.state.items}/>
+            <TodoList
+            items={this.state.items}
+            clearList={this.clearList}
+            handleDelete={this.handleDelete}
+            />
           </div>
         </div>
       </div>
